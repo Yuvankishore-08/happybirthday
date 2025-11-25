@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Happy Birthday " />
+    <meta name="github" content="https://github.com/Aoudumber-Bade" />
+    <title>HBD</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      /* Preloader styles (keeps separate so style.css untouched) */
+      #preloader {
+        position: fixed;
+        inset: 0;
+        background: linear-gradient(135deg, #ff9eb8, #ffbfd3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: "Sriracha", cursive;
+        color: white;
+        z-index: 9999;
+        transition: opacity 1s ease, visibility 1s ease;
+        text-align: center;
+      }
+      #preloader.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .caption {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        color: #fff;
+        animation: floatText 2s ease-in-out infinite;
+      }
+      @keyframes floatText {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        }
+      }
+      .progress-bar {
+        width: 250px;
+        height: 15px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 5px #fff inset;
+      }
+      .progress {
+        height: 100%;
+        width: 0%;
+        background: #fff;
+        border-radius: 10px;
+        animation: fillBar 2s linear forwards;
+      }
+      @keyframes fillBar {
+        from {
+          width: 0%;
+        }
+        to {
+          width: 100%;
+        }
+      }
+      #start-btn {
+        margin-top: 25px;
+        padding: 8px 20px;
+        background: white;
+        color: #ff3e70;
+        border: none;
+        border-radius: 25px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.6s ease;
+        font-weight: bold;
+      }
+      #start-btn.show {
+        opacity: 1;
+        pointer-events: auto;
+        animation: pulse 1s infinite alternate;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+          box-shadow: 0 0 5px #fff;
+        }
+        100% {
+          transform: scale(1.1);
+          box-shadow: 0 0 15px #fff;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="caption">
+        Ready to celebrate one more fabulous year of you ❤️
+      </div>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+      <button id="start-btn">Let's Go 🎉</button>
+    </div>
+
+    <!-- Background music -->
+    <audio id="bg-music" loop>
+      <source src="happy-birthday-bg.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- --- ORIGINAL PAGE CONTENT (unchanged) --- -->
+    <div id="wrapper">
+      <div class="flag__birthday">
+        <img src="./images/1.png" alt="" width="350" class="flag__left" />
+        <img src="./images/1.png" alt="" width="350" class="flag__right" />
+      </div>
+      <div class="content">
+        <div class="left">
+          <div class="title">
+            <h1 class="happy">
+              <span style="--t: 4s">H</span>
+              <span style="--t: 4.2s">a</span>
+              <span style="--t: 4.4s">p</span>
+              <span style="--t: 4.6s">p</span>
+              <span style="--t: 4.8s">y</span>
+            </h1>
+            <h1 class="birthday">
+              <span style="--t: 5s">B</span>
+              <span style="--t: 5.2s">i</span>
+              <span style="--t: 5.4s">r</span>
+              <span style="--t: 5.6s">t</span>
+              <span style="--t: 5.8s">h</span>
+              <span style="--t: 6s">d</span>
+              <span style="--t: 6.2s">a</span>
+              <span style="--t: 6.4s">y</span>
+            </h1>
+            <div class="hat">
+              <img src="./images/hat.png" alt="" width="130" />
+            </div>
+          </div>
+
+          <div class="date__of__birth"><span></span></div>
+
+          <div class="btn">
+            <button id="btn__letter">
+              Click here Judy Hopps!!
+              <i class="fa-regular fa-envelope"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="right">
+          <div class="box__account">
+            <div class="image"><img src="./images/1762542858523.jpg" alt="" /></div>
+            <div class="name">
+              <i class="fa-solid fa-heart"></i>
+              <span>Renu Madam</span>
+              <i class="fa-solid fa-heart"></i>
+            </div>
+
+            <div class="balloon_one">
+              <img width="100px" src="./images/balloon1.png" alt="" />
+            </div>
+            <div class="balloon_two">
+              <img width="100px" src="./images/balloon2.png" alt="" />
+            </div>
+          </div>
+
+          <div class="cricle">
+            <div class="text__cricle">
+              <span style="--i: 1">h</span><span style="--i: 2">a</span>
+              <span style="--i: 3">p</span><span style="--i: 4">p</span>
+              <span style="--i: 5">y</span><span style="--i: 6">-</span>
+              <span style="--i: 7">b</span><span style="--i: 8">i</span>
+              <span style="--i: 9">r</span><span style="--i: 10">t</span>
+              <span style="--i: 11">h</span><span style="--i: 12">d</span>
+              <span style="--i: 13">a</span><span style="--i: 14">y</span>
+              <span style="--i: 15">-</span>
+            </div>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="decorate_star star1" style="--t: 15s"></div>
+      <div class="decorate_star star2" style="--t: 15.2s"></div>
+      <div class="decorate_star star3" style="--t: 15.4s"></div>
+      <div class="decorate_star star4" style="--t: 15.6s"></div>
+      <div class="decorate_star star5" style="--t: 15.8s"></div>
+
+      <div class="decorate_flower--one" style="--t: 15s">
+        <img width="20" src="./images/decorate_flower.png" alt="" />
+      </div>
+      <div class="decorate_flower--two" style="--t: 15.3s">
+        <img width="20" src="./images/decorate_flower.png" alt="" />
+      </div>
+      <div class="decorate_flower--three" style="--t: 15.6s">
+        <img width="20" src="./images/decorate_flower.png" alt="" />
+      </div>
+
+      <div class="decorate_bottom">
+        <img src="./images/decorate.png" alt="" width="100" />
+      </div>
+      <div class="smiley__icon">
+        <img src="./images/smiley_icon.png" alt="" width="100" />
+      </div>
+
+      <!-- Letter popup (restored GIFs + Tenor embed) -->
+      <div class="box__letter">
+        <div class="letter__border">
+          <div class="letter">
+            <div class="title__letter"></div>
+            <div class="content__letter">
+              <div class="left">
+                <div
+                  class="tenor-gif-embed"
+                  data-postid="15084694"
+                  data-share-method="host"
+                  data-aspect-ratio="1.35021"
+                  data-width="100%"
+                >
+                  <a
+                    href="https://tenor.com/view/zootopia-judy-hopps-nick-wilde-shoulder-bump-gif-15084694"
+                  >
+                    Zootopia Judy Hopps GIF
+                  </a>
+                </div>
+
+                <!-- Tenor embed script (ensure it's loaded) -->
+                <script
+                  type="text/javascript"
+                  async
+                  src="https://tenor.com/embed.js"
+                ></script>
+
+                <!-- backup GIF image if embed fails -->
+                <img
+                  id="heart__letter"
+                  src="https://tenor.com/bbsnG.gif"
+                  alt=""
+                />
+
+                <img
+                  class="heart heart_1"
+                  style="--t: 0.2s"
+                  width="20"
+                  src="./images/heart.png"
+                  alt=""
+                />
+                <img
+                  class="heart heart_2"
+                  style="--t: 0.4s"
+                  width="20"
+                  src="./images/heart.png"
+                  alt=""
+                />
+                <img
+                  class="heart heart_3"
+                  style="--t: 0.6s"
+                  width="20"
+                  src="./images/heart.png"
+                  alt=""
+                />
+                <img
+                  class="heart heart_4"
+                  style="--t: 0.8s"
+                  width="20"
+                  src="./images/heart.png"
+                  alt=""
+                />
+              </div>
+
+              <div class="right">
+                <div class="love__img">
+                  <!-- big gif visible in the letter -->
+                  <img
+                    src=""
+                    alt=""
+                    width="220"
+                  />
+                </div>
+
+                <div class="text__letter"><p></p></div>
+
+                <img id="mewmew" width="80" src="" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div class="close"><i class="fa-solid fa-xmark"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="copy">
+      <p class="text-center text-white text-sm">
+        Best Wishes
+        <a href="https://www.instagram.com /#">@YK</a>
+      </p>
+    </div>
+
+    <!-- RESTORED JS: preloader + popup + typing + animations -->
+    <script>
+      // PRELOADER + BACKGROUND MUSIC
+      window.addEventListener("load", () => {
+        const preloader = document.getElementById("preloader");
+        const progress = document.querySelector(".progress");
+        const startBtn = document.getElementById("start-btn");
+        const audio = document.getElementById("bg-music");
+
+        // If audio element missing (because user kept audio elsewhere), guard
+        if (audio) {
+          audio.volume = 0;
+          audio.muted = true;
+        }
+
+        // When progress finishes, show start button
+        if (progress && startBtn) {
+          progress.addEventListener("animationend", () => {
+            startBtn.classList.add("show");
+          });
+
+          // Fallback: show button after 2.5s if animation doesn't trigger
+          setTimeout(() => {
+            if (!startBtn.classList.contains("show")) {
+              startBtn.classList.add("show");
+            }
+          }, 2500);
+
+          startBtn.addEventListener("click", () => {
+            preloader.style.transition = "opacity 1s ease";
+            preloader.style.opacity = "0";
+            setTimeout(() => {
+              preloader.style.display = "none";
+              if (audio) {
+                audio
+                  .play()
+                  .then(() => {
+                    audio.muted = false;
+                    let v = 0;
+                    const fade = setInterval(() => {
+                      if (v < 0.5) {
+                        v += 0.05;
+                        audio.volume = v;
+                      } else clearInterval(fade);
+                    }, 200);
+                  })
+                  .catch((err) => console.warn("Autoplay blocked:", err));
+              }
+            }, 1000);
+          });
+        }
+      });
+
+      // RESTORE original popup typing logic & animations
+      let datetxt = "9 December 2025";
+      let datatxtletter =
+        "Happy Birthday to my favorite person to roast😜Thanks for being such an easy target😂. I’m truly grateful for you, and the bond we share is something rare...something not everyone gets to have.You’re that special friend I can count on in every phase of life. Let’s keep growing together, just like we always do😇💙. Wishing you a year full of love, strength, happiness, and blessings🥳🥰🍫";
+      let titleLetter = "To Judy";
+      let charArrDate = datetxt.split("");
+      let charArrDateLetter = datatxtletter.split("");
+      let charArrTitle = titleLetter.split("");
+      let currentIndex = 0;
+      let currentIndexLetter = 0;
+      let currentIndexTitle = 0;
+      let date__of__birth = document.querySelector(".date__of__birth span");
+      let text__letter = document.querySelector(".text__letter p");
+
+      setTimeout(function () {
+        timeDatetxt = setInterval(function () {
+          if (currentIndex < charArrDate.length) {
+            date__of__birth.textContent += charArrDate[currentIndex];
+            currentIndex++;
+          } else {
+            let i = document.createElement("i");
+            i.className = "fa-solid fa-star";
+            document.querySelector(".date__of__birth").prepend(i);
+            document
+              .querySelector(".date__of__birth")
+              .appendChild(i.cloneNode(true));
+            clearInterval(timeDatetxt);
+          }
+        }, 100);
+      }, 12000);
+
+      var intervalContent;
+      var intervalTitle;
+
+      // Ensure handlers attached once
+      $("#btn__letter")
+        .off("click")
+        .on("click", function () {
+          $(".box__letter").slideDown();
+          setTimeout(function () {
+            $(".letter__border").slideDown();
+          }, 1000);
+
+          // title typing with small hearts
+          setTimeout(function () {
+            intervalTitle = setInterval(function () {
+              if (currentIndexTitle < charArrTitle.length) {
+                document.querySelector(".title__letter").textContent +=
+                  charArrTitle[currentIndexTitle];
+                let i = document.createElement("i");
+                i.className = "fa-solid fa-heart";
+                document.querySelector(".title__letter").appendChild(i);
+                currentIndexTitle++;
+              } else {
+                clearInterval(intervalTitle);
+              }
+            }, 100);
+          }, 2000);
+
+          // animation ops (reveal gifs/images)
+          setTimeout(function () {
+            const heartGif = document.querySelector("#heart__letter");
+            const loveImg = document.querySelector(".love__img");
+            const mewmew = document.querySelector("#mewmew");
+            if (heartGif) heartGif.classList.add("animationOp");
+            if (loveImg) loveImg.classList.add("animationOp");
+            if (mewmew) mewmew.classList.add("animationOp");
+          }, 2800);
+
+          // animate small floating hearts (existing CSS uses .heart.animation)
+          setTimeout(function () {
+            document.querySelectorAll(".heart").forEach((item) => {
+              item.classList.add("animation");
+            });
+          }, 3500);
+
+          // letter content typing
+          setTimeout(function () {
+            intervalContent = setInterval(function () {
+              if (currentIndexLetter < charArrDateLetter.length) {
+                text__letter.textContent +=
+                  charArrDateLetter[currentIndexLetter];
+                currentIndexLetter++;
+              } else {
+                clearInterval(intervalContent);
+                // Add cake link button
+                const cakeBtn = document.createElement("a");
+                cakeBtn.href = "#";
+                cakeBtn.textContent = " 🎂 Click for Birthday Cake!";
+                cakeBtn.style.cursor = "pointer";
+                cakeBtn.style.color = "#ff3e70";
+                cakeBtn.style.marginLeft = "5px";
+                cakeBtn.onclick = (e) => {
+                  e.preventDefault();
+                  window.open("birthday-cake.html", "_blank");
+                };
+                text__letter.appendChild(cakeBtn);
+              }
+            }, 50);
+          }, 6000);
+        });
+
+      // close handler
+      $(".close")
+        .off("click")
+        .on("click", function () {
+          clearInterval(intervalContent);
+          document.querySelector(".title__letter").textContent = "";
+          text__letter.textContent = "";
+          currentIndexLetter = 0;
+          currentIndexTitle = 0;
+          const heartGif = document.querySelector("#heart__letter");
+          const loveImg = document.querySelector(".love__img");
+          const mewmew = document.querySelector("#mewmew");
+          if (heartGif) heartGif.classList.remove("animationOp");
+          if (loveImg) loveImg.classList.remove("animationOp");
+          if (mewmew) mewmew.classList.remove("animationOp");
+          document.querySelectorAll(".heart").forEach((item) => {
+            item.classList.remove("animation");
+          });
+          $(".box__letter").slideUp();
+          $(".letter__border").slideUp();
+        });
+    </script>
+  </body>
+</html>
